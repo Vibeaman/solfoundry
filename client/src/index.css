@@ -2,59 +2,188 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
 :root {
-  --sol-purple: #9945FF;
-  --sol-green: #14F195;
-  --sol-dark: #0D0D0D;
-  --sol-gray: #1A1A1A;
+  --sf-black: #0D0D0D;
+  --sf-white: #FFFFFF;
+  --sf-gray: #F5F5F5;
+  --sf-gray-dark: #E5E5E5;
+  --sf-red: #E54D4D;
+  --sf-blue: #5B9BD5;
+  --sf-light-blue: #D4E5F7;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
-  font-family: 'Inter', system-ui, sans-serif;
-  background-color: var(--sol-dark);
-  color: white;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  background-color: var(--sf-gray);
+  color: var(--sf-black);
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Gradient text */
-.gradient-text {
-  background: linear-gradient(90deg, var(--sol-purple), var(--sol-green));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* Main container with border */
+.main-container {
+  background: var(--sf-white);
+  border: 1px solid var(--sf-black);
+  margin: 20px;
+  min-height: calc(100vh - 40px);
 }
 
-/* Gradient border */
-.gradient-border {
-  position: relative;
-  background: var(--sol-gray);
-  border-radius: 12px;
-}
-
-.gradient-border::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: 13px;
-  padding: 1px;
-  background: linear-gradient(135deg, var(--sol-purple), var(--sol-green));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
+@media (max-width: 768px) {
+  .main-container {
+    margin: 10px;
+    min-height: calc(100vh - 20px);
+  }
 }
 
 /* Button styles */
 .btn-primary {
-  @apply px-6 py-3 rounded-full font-semibold transition-all duration-200;
-  background: linear-gradient(90deg, var(--sol-purple), var(--sol-green));
+  @apply inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-200;
+  background: var(--sf-black);
+  color: var(--sf-white);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(153, 69, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .btn-secondary {
-  @apply px-6 py-3 rounded-full font-semibold border border-white/20 hover:border-white/40 transition-all duration-200;
+  @apply inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-200;
+  background: transparent;
+  color: var(--sf-black);
+  border: 1px solid var(--sf-black);
+}
+
+.btn-secondary:hover {
+  background: var(--sf-black);
+  color: var(--sf-white);
+}
+
+/* Sparkle icon */
+.sparkle {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
+/* Section dividers */
+.border-section {
+  border: 1px solid var(--sf-black);
+}
+
+.border-t-section {
+  border-top: 1px solid var(--sf-black);
+}
+
+.border-b-section {
+  border-bottom: 1px solid var(--sf-black);
+}
+
+.border-r-section {
+  border-right: 1px solid var(--sf-black);
+}
+
+.border-l-section {
+  border-left: 1px solid var(--sf-black);
+}
+
+/* Card styles */
+.card {
+  background: var(--sf-white);
+  border: 1px solid var(--sf-black);
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Stats bar */
+.stats-bar {
+  display: flex;
+  border-top: 1px solid var(--sf-black);
+}
+
+.stat-item {
+  flex: 1;
+  padding: 20px 24px;
+  border-right: 1px solid var(--sf-black);
+}
+
+.stat-item:last-child {
+  border-right: none;
+}
+
+/* Highlight text */
+.text-highlight {
+  color: var(--sf-red);
+}
+
+/* Input styles */
+input, textarea, select {
+  background: var(--sf-white);
+  border: 1px solid var(--sf-black);
+  padding: 12px 16px;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(13, 13, 13, 0.1);
+}
+
+/* Tag/pill styles */
+.tag {
+  @apply inline-flex items-center px-3 py-1 text-sm rounded-full;
+  background: var(--sf-gray);
+  border: 1px solid var(--sf-gray-dark);
+}
+
+.tag-primary {
+  background: var(--sf-black);
+  color: var(--sf-white);
+  border: none;
+}
+
+/* Arrow icon */
+.arrow-icon {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.btn-primary:hover .arrow-icon,
+.btn-secondary:hover .arrow-icon {
+  transform: translateX(4px);
+}
+
+/* Credits */
+.credits-link {
+  color: var(--sf-black);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.credits-link:hover {
+  border-bottom-color: var(--sf-black);
+}
+
+/* Solana wallet button override */
+.wallet-adapter-button {
+  background: var(--sf-black) !important;
+  border-radius: 9999px !important;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  height: 44px !important;
+}
+
+.wallet-adapter-button:hover {
+  background: #333 !important;
 }
