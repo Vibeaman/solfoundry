@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Sparkle from '../components/Sparkle';
 import Arrow from '../components/Arrow';
+import { API_URL } from '../config';
 
 export default function Builders() {
   const [builders, setBuilders] = useState([]);
@@ -13,7 +14,7 @@ export default function Builders() {
 
   const fetchBuilders = async () => {
     try {
-      const res = await fetch('/api/builders');
+      const res = await fetch(`${API_URL}/api/builders`);
       const data = await res.json();
       setBuilders(data);
     } catch (err) {

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Sparkle from '../components/Sparkle';
 import Arrow from '../components/Arrow';
+import { API_URL } from '../config';
 
 const CATEGORIES = ['all', 'defi', 'nft', 'tooling', 'gaming', 'infra', 'social', 'other'];
 
@@ -21,7 +22,7 @@ export default function Ideas() {
       if (category !== 'all') params.set('category', category);
       params.set('status', 'posted');
       
-      const res = await fetch(`/api/ideas?${params}`);
+      const res = await fetch(`${API_URL}/api/ideas?${params}`);
       const data = await res.json();
       setIdeas(data);
     } catch (err) {

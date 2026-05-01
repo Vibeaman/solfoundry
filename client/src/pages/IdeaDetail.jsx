@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useWallet } from '@solana/wallet-adapter-react';
 import Sparkle from '../components/Sparkle';
 import Arrow from '../components/Arrow';
+import { API_URL } from '../config';
 
 export default function IdeaDetail() {
   const { id } = useParams();
@@ -23,7 +24,7 @@ export default function IdeaDetail() {
 
   const fetchIdea = async () => {
     try {
-      const res = await fetch(`/api/ideas/${id}`);
+      const res = await fetch(`${API_URL}/api/ideas/${id}`);
       const data = await res.json();
       setIdea(data);
     } catch (err) {
@@ -38,7 +39,7 @@ export default function IdeaDetail() {
     if (!publicKey) return alert('Please connect your wallet');
 
     try {
-      const res = await fetch('/api/bids', {
+      const res = await fetch(`${API_URL}/api/bids`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

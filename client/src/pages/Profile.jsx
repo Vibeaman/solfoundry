@@ -3,6 +3,7 @@ import { useWallet } from '@solana/wallet-adapter-react';
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import Sparkle from '../components/Sparkle';
 import Arrow from '../components/Arrow';
+import { API_URL } from '../config';
 
 export default function Profile() {
   const { publicKey } = useWallet();
@@ -30,7 +31,7 @@ export default function Profile() {
 
   const authUser = async () => {
     try {
-      const res = await fetch('/api/users/auth', {
+      const res = await fetch(`${API_URL}/api/users/auth`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ wallet_address: publicKey.toString() })
@@ -59,7 +60,7 @@ export default function Profile() {
 
     setSaving(true);
     try {
-      const res = await fetch(`/api/users/${user.id}`, {
+      const res = await fetch(`${API_URL}/api/users/${user.id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form)

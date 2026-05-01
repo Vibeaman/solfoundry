@@ -4,6 +4,7 @@ import { useWallet } from '@solana/wallet-adapter-react';
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import Sparkle from '../components/Sparkle';
 import Arrow from '../components/Arrow';
+import { API_URL } from '../config';
 
 const CATEGORIES = ['defi', 'nft', 'tooling', 'gaming', 'infra', 'social', 'other'];
 
@@ -28,7 +29,7 @@ export default function CreateIdea() {
 
     setSubmitting(true);
     try {
-      const res = await fetch('/api/ideas', {
+      const res = await fetch(`${API_URL}/api/ideas`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
