@@ -40,7 +40,7 @@ export default function Home() {
           </div>
         </div>
 
-        {{/* Right - 3D Illustration */}
+        {/* Right - 3D Illustration */}
         <div className="border-l-section relative overflow-hidden hidden md:block">
           <Hero3D />
         </div>
