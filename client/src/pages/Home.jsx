@@ -40,9 +40,17 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Right - 3D Illustration */}
-        <div className="border-l-section relative overflow-hidden hidden md:block">
+        {/* Right - 3D Illustration - Desktop */}
+        <div className="border-l-section relative overflow-hidden hidden md:block md:min-h-[500px]">
           <Hero3D />
+        </div>
+
+        {/* Mobile 3D decoration */}
+        <div className="md:hidden absolute top-20 right-4 opacity-60 scale-75">
+          <div className="w-20 h-10 rounded-full bg-gradient-to-br from-[#5B9BD5] to-[#3A7BC8] shadow-lg animate-float"></div>
+        </div>
+        <div className="md:hidden absolute bottom-40 right-8 opacity-50 scale-75">
+          <div className="w-16 h-16 rounded-[40%_60%_70%_30%/40%_50%_60%_50%] bg-gradient-to-br from-[#E54D4D] to-[#C43E3E] shadow-lg animate-float-delayed"></div>
         </div>
       </section>
 
