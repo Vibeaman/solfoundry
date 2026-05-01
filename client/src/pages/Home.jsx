@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Sparkle from '../components/Sparkle';
 import Arrow from '../components/Arrow';
+import Hero3D from '../components/Hero3D';
 
 export default function Home() {
   return (
@@ -39,38 +40,9 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Right - Illustration */}
-        <div className="border-l-section bg-sf-gray/50 relative overflow-hidden hidden md:flex items-center justify-center">
-          {/* Abstract geometric shapes */}
-          <svg className="w-full h-full" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-            {/* Network nodes */}
-            <circle cx="200" cy="80" r="8" fill="#0D0D0D"/>
-            <circle cx="280" cy="120" r="8" fill="#0D0D0D"/>
-            <circle cx="320" cy="80" r="8" fill="#0D0D0D"/>
-            <circle cx="240" cy="40" r="8" fill="#0D0D0D"/>
-            <line x1="200" y1="80" x2="280" y2="120" stroke="#0D0D0D" strokeWidth="1"/>
-            <line x1="280" y1="120" x2="320" y2="80" stroke="#0D0D0D" strokeWidth="1"/>
-            <line x1="200" y1="80" x2="240" y2="40" stroke="#0D0D0D" strokeWidth="1"/>
-            <line x1="240" y1="40" x2="320" y2="80" stroke="#0D0D0D" strokeWidth="1"/>
-            
-            {/* Red triangle */}
-            <polygon points="260,100 300,160 220,160" fill="#E54D4D"/>
-            
-            {/* Blue capsule */}
-            <rect x="180" y="180" width="120" height="60" rx="30" fill="#5B9BD5"/>
-            <circle cx="270" cy="210" r="20" fill="white"/>
-            
-            {/* Black cursor/arrow */}
-            <polygon points="220,280 280,340 250,340 260,380 230,370 220,340 190,340" fill="#0D0D0D"/>
-            
-            {/* Red wave */}
-            <path d="M140,300 Q200,250 260,300 Q320,350 380,300 L380,400 L140,400 Z" fill="#E54D4D" opacity="0.8"/>
-            
-            {/* Dotted texture circles */}
-            <circle cx="340" cy="320" r="20" fill="#D4E5F7" opacity="0.6"/>
-            <circle cx="360" cy="360" r="15" fill="#D4E5F7" opacity="0.6"/>
-            <circle cx="320" cy="370" r="12" fill="#D4E5F7" opacity="0.6"/>
-          </svg>
+        {{/* Right - 3D Illustration */}
+        <div className="border-l-section relative overflow-hidden hidden md:block">
+          <Hero3D />
         </div>
       </section>
 
@@ -102,7 +74,7 @@ export default function Home() {
         </div>
         
         <div className="grid md:grid-cols-3 gap-8">
-          <div className="card p-8">
+          <div className="card card-3d p-8">
             <div className="text-4xl font-bold text-sf-black/20 mb-4">01</div>
             <h3 className="text-xl font-semibold mb-3">Share your idea</h3>
             <p className="text-sf-black/60">
@@ -110,7 +82,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="card p-8">
+          <div className="card card-3d p-8">
             <div className="text-4xl font-bold text-sf-black/20 mb-4">02</div>
             <h3 className="text-xl font-semibold mb-3">Get bids from builders</h3>
             <p className="text-sf-black/60">
@@ -118,7 +90,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="card p-8">
+          <div className="card card-3d p-8">
             <div className="text-4xl font-bold text-sf-black/20 mb-4">03</div>
             <h3 className="text-xl font-semibold mb-3">Build with escrow</h3>
             <p className="text-sf-black/60">
